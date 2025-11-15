@@ -1,4 +1,4 @@
-bước 1 :tải cả folder này về
+bước 1 :tải cả folder này về \n
 bước 2: mở terminal , gõ lệnh "python app.py"
 bước 3: 
 <img width="379" height="97" alt="image" src="https://github.com/user-attachments/assets/d9ec7de0-91ed-4891-9ec8-c5070447e195" />
