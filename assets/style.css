@@ -1,0 +1,172 @@
+/* ===== GLOBAL ===== */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: white;
+}
+
+/* ===== BACKGROUND ANIMATION  ===== */
+.bg-slide {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0; 
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: fade 90s infinite;
+}
+
+
+.bg1 { 
+    background-image: url('/assets/hanoi1.jpg'); 
+    animation-delay: 0s; 
+    animation-name: fade-first; 
+    opacity: 1; 
+}
+.bg2 { background-image: url('/assets/hanoi2.jpg'); animation-delay: 20s; }
+.bg3 { background-image: url('/assets/hanoi3.jpg'); animation-delay: 40s; }
+.bg4 { background-image: url('/assets/hanoi4.jpg'); animation-delay: 60s; }
+.bg5 { background-image: url('/assets/hanoi5.jpg'); animation-delay: 80s; }
+
+@keyframes fade {
+    0% {opacity:0;}
+    10% {opacity:1;}
+    30% {opacity:1;}
+    40% {opacity:0;}
+    100% {opacity:0;}
+}
+@keyframes fade-first {
+    0%   { opacity: 1; } 
+    30%  { opacity: 1; } 
+    40%  { opacity: 0; } 
+    100% { opacity: 0; } 
+}
+
+/* ===== MAIN DISPLAY PANEL (Ô LỚN) ===== */
+.left-panel {
+    position: absolute;
+    left: 40px;
+    top: 100px;
+    z-index: 10;
+}
+
+.summary-card {
+    background: rgba(0,0,0,0.2);
+    padding: 30px; 
+    border-radius:16px; 
+    backdrop-filter: blur(10px);
+    border:1px solid rgba(255,255,255,0.1); 
+    color:white;
+    width:320px;
+}
+
+.hanoi-font {
+    font-family: 'Hanoi', 'Segoe UI'; 
+}
+
+
+/* ===== "DISPLAY" BUTTON  ===== */
+
+#display-button-container {
+    position: fixed;
+    /* Thay vì góc dưới phải, đặt ở giữa */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+}
+
+#display-button-container button {
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.5);
+    /* Tăng padding và font-size cho nút lớn hơn */
+    padding: 15px 30px; 
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 24px; /* Lớn hơn */
+    backdrop-filter: blur(5px);
+    font-weight: 600;
+}
+
+/* ===== FORECAST CONTAINER (5 Ô NHỎ) ===== */
+#forecast-container {
+    position: fixed;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+
+    display: flex;
+    gap: 24px; 
+    justify-content: center;
+}
+
+/* CSS cho 5 ô nhỏ  */
+.forecast-card-button {
+    /* Reset CSS của button */
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    font: inherit;
+    color: inherit;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+
+    /* CSS */
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    width: 120px;
+    height: 120px;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.forecast-card-button:hover {
+    border: 1px solid white;
+    transform: translateY(-3px);
+}
+
+.forecast-card-button:focus {
+    /* Hiển thị ô đang được chọn */
+    background: rgba(255,255,255,0.3);
+    border: 1px solid white;
+    box-shadow: 0 0 10px rgba(255,255,255,0.3);
+    outline: none;
+}
+
+/* CSS cho các text bên trong 5 ô nhỏ */
+.card-day { font-size: 14px; font-weight: 600; }
+.card-date { font-size: 12px; opacity: 0.8; }
+.card-temp { font-size: 22px; margin-top: 8px; }
+.card-icon { font-size: 18px; opacity: 0.8; margin-top: 5px; }
+
+#display-button-container button .button-title-main {
+    font-size: 28px; /* Tùy chỉnh font cho dòng chính */
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+}
+
+#display-button-container button .button-title-sub {
+    font-size: 16px; /* Tùy chỉnh font cho dòng phụ */
+    font-weight: 400;
+    color: white;
+    opacity: 0.85;
+    margin-top: 5px;
+}
